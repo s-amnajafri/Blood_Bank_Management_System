@@ -1,7 +1,5 @@
-# ============================================================
 # Blood Bank Management System
 # Streamlit Frontend
-# ============================================================
 
 import streamlit as st
 import pandas as pd
@@ -12,7 +10,7 @@ from reports import (get_donor_summary, get_units_by_blood_group,
                      get_monthly_report, get_discard_report,
                      get_requests_by_status)
 
-# ── Page config ──────────────────────────────────────────
+# ── Page config 
 st.set_page_config(
     page_title="Blood Bank Management System",
     page_icon="🩸",
@@ -22,7 +20,7 @@ st.set_page_config(
 st.title("Blood Bank Management System")
 st.markdown("---")
 
-# ── Sidebar navigation ───────────────────────────────────
+# ── Sidebar navigation 
 page = st.sidebar.selectbox("Navigate", [
     "Dashboard",
     "Donors",
@@ -31,9 +29,7 @@ page = st.sidebar.selectbox("Navigate", [
     "Reports"
 ])
 
-# ════════════════════════════════════════════════════════
 # DASHBOARD
-# ════════════════════════════════════════════════════════
 if page == "Dashboard":
     st.header("Dashboard")
 
@@ -63,9 +59,7 @@ if page == "Dashboard":
         status_df = get_requests_by_status()
         st.bar_chart(status_df.set_index("status"))
 
-# ════════════════════════════════════════════════════════
 # DONORS
-# ════════════════════════════════════════════════════════
 elif page == "Donors":
     st.header("Donor Management")
 
@@ -109,9 +103,7 @@ elif page == "Donors":
             else:
                 st.info("No donors found for this blood group.")
 
-# ════════════════════════════════════════════════════════
 # BLOOD UNITS
-# ════════════════════════════════════════════════════════
 elif page == "Blood Units":
     st.header("Blood Unit Management")
 
@@ -142,9 +134,7 @@ elif page == "Blood Units":
             else:
                 st.warning(f"No units available for {bg}")
 
-# ════════════════════════════════════════════════════════
 # BLOOD REQUESTS
-# ════════════════════════════════════════════════════════
 elif page == "Blood Requests":
     st.header("Blood Request Management")
 
@@ -173,9 +163,7 @@ elif page == "Blood Requests":
         else:
             st.success("No pending requests!")
 
-# ════════════════════════════════════════════════════════
 # REPORTS
-# ════════════════════════════════════════════════════════
 elif page == "Reports":
     st.header("Reports and Analytics")
 
