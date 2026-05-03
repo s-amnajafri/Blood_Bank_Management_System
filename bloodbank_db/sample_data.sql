@@ -139,3 +139,50 @@ INSERT INTO DiscardUnit (bloodUnitID, discardDate, reason) VALUES
 (2, '2024-02-16', 'Expired'),
 (3, '2024-03-02', 'Expired'),
 (4, '2024-03-15', 'Contaminated');
+
+-- new donationDateUSE bloodbank;
+
+-- Add new persons for 2025/2026 donations
+INSERT INTO Person (name, gender, age, contact) VALUES
+('Zainab Ali',     'Female', 25, '0303-1111111'),
+('Hassan Malik',   'Male',   30, '0303-2222222'),
+('Hira Baig',      'Female', 28, '0303-3333333'),
+('Fahad Khan',     'Male',   33, '0303-4444444'),
+('Mariam Siddiqui','Female', 27, '0303-5555555');
+
+-- Add them as donors
+INSERT INTO Donor (personID, bloodGroup) VALUES
+(21, 'A+'),
+(22, 'O+'),
+(23, 'B+'),
+(24, 'AB-'),
+(25, 'O-');
+
+-- Add 2025 donations
+INSERT INTO Donation (donorID, staffID, donationDate, quantity) VALUES
+(16, 1, '2025-01-15', 1),
+(17, 2, '2025-03-20', 1),
+(18, 3, '2025-06-10', 2),
+(19, 4, '2025-09-05', 1),
+(20, 5, '2025-11-22', 1);
+
+-- Add 2026 donations
+INSERT INTO Donation (donorID, staffID, donationDate, quantity) VALUES
+(16, 1, '2026-01-10', 1),
+(17, 2, '2026-02-14', 2),
+(18, 3, '2026-03-01', 1),
+(19, 4, '2026-04-05', 1),
+(20, 5, '2026-04-28', 2);
+
+-- Add blood units for these donations (future expiry dates)
+INSERT INTO BloodUnit (donationID, bloodGroup, expiryDate, storageID) VALUES
+(16, 'A+',  '2026-08-15', 1),
+(17, 'O+',  '2026-09-20', 2),
+(18, 'B+',  '2026-10-10', 3),
+(19, 'AB-', '2026-11-05', 4),
+(20, 'O-',  '2026-12-22', 1),
+(21, 'A+',  '2026-08-10', 2),
+(22, 'O+',  '2026-09-14', 3),
+(23, 'B+',  '2026-10-01', 4),
+(24, 'AB-', '2026-11-05', 1),
+(25, 'O-',  '2026-11-28', 2);
